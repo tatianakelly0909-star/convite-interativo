@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,11 @@
     <title>Tenho uma pergunta...</title>
 
     <link rel="stylesheet" href="style.css">
-    
 </head>
 
 <body>
 
+    <!-- TELA 1 -->
     <div class="card" id="pergunta">
 
         <div class="emoji">👀</div>
@@ -20,7 +21,7 @@
 
         <p>Prometo que é uma pergunta importante kkkkk</p>
 
-        <h2>Quer sair comigo? </h2>
+        <h2>Quer sair comigo?</h2>
 
         <div class="botoes">
 
@@ -41,15 +42,14 @@
     </div>
 
 
+    <!-- TELA 2 -->
     <div class="card escondido" id="escolha">
 
         <div class="emoji">🥰</div>
 
         <h1>Eu sabia!</h1>
 
-        <p>
-            Agora que você aceitou...
-        </p>
+        <p>Agora que você aceitou...</p>
 
         <h2>Escolhe nosso rolê 👀</h2>
 
@@ -58,7 +58,7 @@
             <button onclick="escolher('cinema')">
                 🎬
                 <strong>Cinema</strong>
-                <small>Filme + pipoca </small>
+                <small>Filme + pipoca 🍿</small>
             </button>
 
             <button onclick="escolher('surpresa')">
@@ -72,7 +72,8 @@
     </div>
 
 
-        <div class="card escondido" id="resultado">
+    <!-- TELA 3 -->
+    <div class="card escondido" id="resultado">
 
         <div class="emoji" id="emojiResultado"></div>
 
@@ -80,18 +81,28 @@
 
         <p id="textoResultado"></p>
 
-        <div class="coracao"></div>
+        <div class="coracao">❤️</div>
+
+        <p class="aviso-escolha">
+            Agora só falta uma coisa... me contar sua escolha 👀
+        </p>
+
+        <button id="enviarEscolha">
+            Mandar minha escolha 💌
+        </button>
 
     </div>
 
 
-    <!-- Música -->
+    <!-- MÚSICA -->
     <audio id="musica" loop>
         <source src="musica/musica.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- JavaScript -->
+
+    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 
 </body>
+
 </html>

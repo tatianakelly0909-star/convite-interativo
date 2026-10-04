@@ -7,31 +7,42 @@ const resultado = document.getElementById("resultado");
 
 const musica = document.getElementById("musica");
 
+const botaoEnviar = document.getElementById("enviarEscolha");
 
-// ==========================
+let escolhaFeita = "";
+
+
+// ========================================
 // BOTÃO NÃO FOGE 😂
-// ==========================
+// ========================================
 
 function fugir() {
 
     botaoNao.style.position = "fixed";
 
-    const largura = window.innerWidth - botaoNao.offsetWidth;
-    const altura = window.innerHeight - botaoNao.offsetHeight;
+    const largura =
+        window.innerWidth - botaoNao.offsetWidth;
+
+    const altura =
+        window.innerHeight - botaoNao.offsetHeight;
 
     const x = Math.random() * largura;
+
     const y = Math.random() * altura;
 
     botaoNao.style.left = `${x}px`;
+
     botaoNao.style.top = `${y}px`;
 }
 
 
-// PC
+// COMPUTADOR
+
 botaoNao.addEventListener("mouseenter", fugir);
 
 
 // CELULAR
+
 botaoNao.addEventListener("touchstart", (event) => {
 
     event.preventDefault();
@@ -41,9 +52,9 @@ botaoNao.addEventListener("touchstart", (event) => {
 });
 
 
-// ==========================
-// CLICOU SIM ❤️
-// ==========================
+// ========================================
+// CLICOU EM SIM ❤️
+// ========================================
 
 botaoSim.addEventListener("click", () => {
 
@@ -52,59 +63,125 @@ botaoSim.addEventListener("click", () => {
     escolha.classList.remove("escondido");
 
 
-    // COMEÇA A MÚSICA 🎵
+    // COMEÇA A MÚSICA
 
     musica.volume = 0.5;
 
     musica.play().catch((erro) => {
 
-        console.log("Erro ao tocar a música:", erro);
+        console.log(
+            "Não foi possível tocar a música:",
+            erro
+        );
 
     });
 
 });
 
 
-// ==========================
+// ========================================
 // ESCOLHEU O ROLÊ
-// ==========================
+// ========================================
 
 function escolher(tipo) {
+
+    escolhaFeita = tipo;
 
     escolha.classList.add("escondido");
 
     resultado.classList.remove("escondido");
 
 
-    // CINEMA 🎬
+    // CINEMA
 
     if (tipo === "cinema") {
 
-        document.getElementById("emojiResultado").innerText =
-            "🎬🍿";
+        document.getElementById(
+            "emojiResultado"
+        ).innerText = "🎬🍿";
 
-        document.getElementById("tituloResultado").innerText =
+
+        document.getElementById(
+            "tituloResultado"
+        ).innerText =
             "Cinema escolhido!";
 
-        document.getElementById("textoResultado").innerText =
-            "Agora só falta escolher o filme... porque a companhia já está garantida 😏";
+
+        document.getElementById(
+            "textoResultado"
+        ).innerText =
+            "Agora só falta escolher o filme 😏";
 
     }
 
 
-    // SURPRESA 🎁
+    // SURPRESA
 
     if (tipo === "surpresa") {
 
-        document.getElementById("emojiResultado").innerText =
-            "🎁👀";
+        document.getElementById(
+            "emojiResultado"
+        ).innerText = "🎁👀";
 
-        document.getElementById("tituloResultado").innerText =
+
+        document.getElementById(
+            "tituloResultado"
+        ).innerText =
             "Você escolheu surpresa...";
 
-        document.getElementById("textoResultado").innerText =
+
+        document.getElementById(
+            "textoResultado"
+        ).innerText =
             "Corajosa 😂 Agora não adianta perguntar. Só confia em mim.";
 
     }
 
 }
+
+
+// ========================================
+// MANDAR ESCOLHA NO WHATSAPP 💌
+// ========================================
+
+botaoEnviar.addEventListener("click", () => {
+
+    /*
+        COLOQUE SEU WHATSAPP AQUI
+
+        Exemplo:
+        (11) 98765-4321
+
+        fica:
+        5511987654321
+    */
+
+    const numero = "5511967747392";
+
+
+    let mensagem = "";
+
+
+    if (escolhaFeita === "cinema") {
+
+        mensagem =
+            "Eu escolhi Cinema 🎬🍿";
+
+    }
+
+
+    if (escolhaFeita === "surpresa") {
+
+        mensagem =
+            "Eu escolhi Surpresa 👀🎁";
+
+    }
+
+
+    const url =
+        `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+
+    window.open(url, "_blank");
+
+});
