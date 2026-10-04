@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #ffb6c1, transparent 40%),
+        radial-gradient(circle at bottom right, #ff758c, transparent 40%),
+        linear-gradient(135deg, #fff0f3, #ffd6e0);
+
+    overflow: hidden;
+}
+
+.card {
+    width: 90%;
+    max-width: 500px;
+
+    padding: 45px 35px;
+
+    background: rgba(255,255,255,0.9);
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(180, 60, 90, 0.25);
+
+    animation: aparecer .6s ease;
+}
+
+.emoji {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #10034b;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #333;
+    font-size: 28px;
+}
+
+p {
+    color: #666;
+    font-size: 17px;
+}
+
+.botoes {
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    min-height: 70px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+
+    font-size: 18px;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    transition: .3s;
+}
+
+#sim {
+    background: #150454;
+    color: white;
+
+    box-shadow: 0 8px 20px rgba(255,77,109,.35);
+}
+
+#sim:hover {
+    transform: scale(1.1);
+    background: #e63956;
+}
+
+#nao {
+    background: #eee;
+    color: #555;
+
+    position: relative;
+}
+
+.dica {
+    display: block;
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    color: #999;
+}
+
+
+/* ESCOLHAS */
+
+.opcoes {
+    margin-top: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.opcoes button {
+
+    background: #fff;
+
+    border: 2px solid #ffd1dc;
+
+    border-radius: 20px;
+
+    padding: 25px 15px;
+
+    font-size: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.opcoes button strong {
+    font-size: 19px;
+    color: #d6336c;
+}
+
+.opcoes button small {
+    font-size: 13px;
+    color: #777;
+}
+
+.opcoes button:hover {
+    transform: translateY(-7px);
+
+    border-color: #ff4d6d;
+
+    box-shadow: 0 10px 25px rgba(255,77,109,.2);
+}
+
+
+/* RESULTADO */
+
+.coracao {
+    font-size: 70px;
+
+    margin-top: 25px;
+
+    animation: pulsar .8s infinite alternate;
+}
+
+.escondido {
+    display: none;
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes pulsar {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.25);
+    }
+}
+
+
+/* CELULAR */
+
+@media(max-width: 500px) {
+
+    .card {
+        padding: 35px 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    .opcoes {
+        grid-template-columns: 1fr;
+    }
+}
